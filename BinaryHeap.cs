@@ -13,7 +13,10 @@ namespace MicKami.BinaryHeap
         }
         
         protected abstract bool Compare(T a, T b);
-        public bool Contains(T element) => Array.Exists(elements, (x) => x.Equals(element));
+        public bool Contains(T element) => Array.Exists(elements, (x) =>
+        {
+            return (x != null && x.Equals(element));
+        });
 
         private int LeftChildIndex(int index) => (index * 2) + 1;
         private int RightChildIndex(int index) => (index * 2) + 2;
